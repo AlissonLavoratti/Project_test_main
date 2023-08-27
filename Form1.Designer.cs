@@ -32,9 +32,9 @@
             cpf = new Label();
             matricula = new Label();
             txtNome = new TextBox();
-            txtCpf = new TextBox();
             txtMatricula = new TextBox();
             btnCadastrar = new Button();
+            maskedTextBox1 = new MaskedTextBox();
             SuspendLayout();
             // 
             // nome
@@ -77,14 +77,6 @@
             txtNome.Size = new Size(329, 23);
             txtNome.TabIndex = 1;
             // 
-            // txtCpf
-            // 
-            txtCpf.Location = new Point(256, 183);
-            txtCpf.MaxLength = 11;
-            txtCpf.Name = "txtCpf";
-            txtCpf.Size = new Size(329, 23);
-            txtCpf.TabIndex = 2;
-            // 
             // txtMatricula
             // 
             txtMatricula.Location = new Point(256, 230);
@@ -105,14 +97,22 @@
             btnCadastrar.UseVisualStyleBackColor = true;
             btnCadastrar.Click += btnCadastrar_Click;
             // 
+            // maskedTextBox1
+            // 
+            maskedTextBox1.Location = new Point(257, 183);
+            maskedTextBox1.Mask = "000,000,000-00";
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.Size = new Size(328, 23);
+            maskedTextBox1.TabIndex = 2;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(maskedTextBox1);
             Controls.Add(btnCadastrar);
             Controls.Add(txtMatricula);
-            Controls.Add(txtCpf);
             Controls.Add(txtNome);
             Controls.Add(matricula);
             Controls.Add(cpf);
@@ -129,8 +129,8 @@
         private Label cpf;
         private Label matricula;
         private TextBox txtNome;
-        private TextBox txtCpf;
         private TextBox txtMatricula;
         private Button btnCadastrar;
+        private MaskedTextBox maskedTextBox1;
     }
 }

@@ -21,24 +21,24 @@ namespace WinFormsApp1
         {
 
         }
-        
-        //botao que cadastra os funcionarios no banco de dados 
+
+        //botao que cadastra os funcionarios no banco de dados//
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (!txtNome.Text.Equals("") && !txtCpf.Text.Equals("") && !txtMatricula.Text.Equals(""))
+                if (!txtNome.Text.Equals("") && !maskedTextBox1.Text.Equals("") && !txtMatricula.Text.Equals(""))
                 {
                     cadastroFuncionarios cadFuncionarios = new cadastroFuncionarios();
                     cadFuncionarios.Nome = txtNome.Text;
-                    cadFuncionarios.Cpf = txtCpf.Text;
+                    cadFuncionarios.Cpf = maskedTextBox1.Text;
                     cadFuncionarios.Matricula = txtMatricula.Text;
 
                     if (cadFuncionarios.cadastrarFuncionarios())
                     {
                         MessageBox.Show($"O funcionário {cadFuncionarios.Nome} foi cadastrado com sucesso!");
                         txtNome.Clear();
-                        txtCpf.Clear();
+                        maskedTextBox1.Clear();
                         txtMatricula.Clear();
                         txtNome.Focus();
                     }
@@ -51,7 +51,7 @@ namespace WinFormsApp1
                 {
                     MessageBox.Show("Favor preencher todos os campos corretamente!");
                     txtNome.Clear();
-                    txtCpf.Clear();
+                    maskedTextBox1.Clear();
                     txtMatricula.Clear();
                     txtNome.Focus();
                 }
