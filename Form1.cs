@@ -22,7 +22,7 @@ namespace WinFormsApp1
 
         }
 
-        private void btnCadastrar_Click(object sender, EventArgs e)//botao que cadastra os funcionarios no banco de dados 
+        private void btnCadastrar_Click(object sender, EventArgs e)/*botao que cadastra os funcionarios no banco de dados */
         {
             try
             {
