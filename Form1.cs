@@ -1,3 +1,5 @@
+using MySql.Data.MySqlClient;
+
 namespace WinFormsApp1
 {
     public partial class Form1 : Form
@@ -27,18 +29,18 @@ namespace WinFormsApp1
         {
             try
             {
-                if (!txtNome.Text.Equals("") && !maskedTextBox1.Text.Equals("") && !txtMatricula.Text.Equals(""))
+                if (!txtNome.Text.Equals("") && !txtCpf.Text.Equals("") && !txtMatricula.Text.Equals(""))
                 {
                     cadastroFuncionarios cadFuncionarios = new cadastroFuncionarios();
                     cadFuncionarios.Nome = txtNome.Text;
-                    cadFuncionarios.Cpf = maskedTextBox1.Text;
+                    cadFuncionarios.Cpf = txtCpf.Text;
                     cadFuncionarios.Matricula = txtMatricula.Text;
 
                     if (cadFuncionarios.cadastrarFuncionarios())
                     {
                         MessageBox.Show($"O funcionário {cadFuncionarios.Nome} foi cadastrado com sucesso!");
                         txtNome.Clear();
-                        maskedTextBox1.Clear();
+                        txtCpf.Clear();
                         txtMatricula.Clear();
                         txtNome.Focus();
                     }
@@ -51,7 +53,7 @@ namespace WinFormsApp1
                 {
                     MessageBox.Show("Favor preencher todos os campos corretamente!");
                     txtNome.Clear();
-                    maskedTextBox1.Clear();
+                    txtCpf.Clear();
                     txtMatricula.Clear();
                     txtNome.Focus();
                 }
@@ -60,6 +62,66 @@ namespace WinFormsApp1
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao cadastrar funcionário: " + ex.Message);
+            }
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!txtCpf.Text.Equals(""))
+                {
+                    cadastroFuncionarios cadFuncionarios = new cadastroFuncionarios();
+                    cadFuncionarios.Cpf = txtCpf.Text;
+
+                    MySqlDataReader reader = cadFuncionarios.localizarFuncionario();
+
+                    if (reader != null)
+                    {
+                        if (reader.HasRows)
+                        {
+                            reader.Read();
+
+                            lblId.Text = reader["funcionario_id"].ToString();
+                            txtNome.Text = reader["funcionario_nome"].ToString();
+                            txtMatricula.Text = reader["funcionario_matricula"].ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Funcionário não encontrado");
+                            txtCpf.Clear();
+                            txtNome.Clear();
+                            txtMatricula.Clear();
+                            txtCpf.Focus();
+                            lblId.Text = "";
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Funcionário não encontrado");
+                        txtCpf.Clear();
+                        txtNome.Clear();
+                        txtMatricula.Clear();
+                        txtCpf.Focus();
+                        lblId.Text = "";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Favor preencher o campo CPF para realizar a pesquisa!");
+                    txtCpf.Clear();
+                    txtNome.Clear();
+                    txtMatricula.Clear();
+                    txtCpf.Focus();
+                    lblId.Text = "";
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erro ao encontrar funcioário: " + ex.Message);
             }
         }
     }

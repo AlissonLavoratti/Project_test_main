@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Utilities.Collections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,7 +50,7 @@ namespace WinFormsApp1
             get { return matricula; }
             set { matricula = value; }
         }
-
+        //metodo para cadastrar os funcionarios no banco de dados
         public bool cadastrarFuncionarios()
         {
             try
@@ -76,5 +77,30 @@ namespace WinFormsApp1
             }
         }
 
+
+        public MySqlDataReader localizarFuncionario()
+        {
+            try
+            {
+                MySqlConnection MysqlConexaoBanco = new MySqlConnection(ConexaoBanco.bancoServidor);
+                MysqlConexaoBanco.Open();
+
+                string select = $"select funcionario_id, funcionario_nome, funcionario_cpf, funcionario_matricula, funcionario_situacao from funcionario where funcionario_cpf = '{Cpf}';";
+
+                MySqlCommand comandoSql = MysqlConexaoBanco.CreateCommand();
+                comandoSql.CommandText = select;
+
+                MySqlDataReader reader = comandoSql.ExecuteReader();
+                return reader;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erro no banco de dados - método localizarFuncionario: " + ex.Message);
+                return null;
+            }
+
+        }
     }
 }
