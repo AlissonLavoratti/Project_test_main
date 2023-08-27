@@ -65,6 +65,7 @@ namespace WinFormsApp1
             }
         }
 
+        //botao que pesquisa os funcionarios no banco de dados//
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             try
