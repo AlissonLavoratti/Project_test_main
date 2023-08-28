@@ -24,21 +24,20 @@ namespace WinFormsApp1
 
         }
 
-        //botao que cadastra os funcionarios no banco de dados//
-        private void btnCadastrar_Click(object sender, EventArgs e)
+        private void btnCadastrar_Click(object sender, EventArgs e)/*botao que cadastra os funcionarios no banco de dados */
         {
             try
             {
                 if (!txtNome.Text.Equals("") && !txtCpf.Text.Equals("") && !txtMatricula.Text.Equals(""))
                 {
                     cadastroFuncionarios cadFuncionarios = new cadastroFuncionarios();
-                    cadFuncionarios.Nome = txtNome.Text;//recebe os dados inseridos pelo usu·rio e atribui aos atributos do ojeto cadFuncionarios
+                    cadFuncionarios.Nome = txtNome.Text;//recebe os dados inseridos pelo usu√°rio e atribui aos atributos do ojeto cadFuncionarios
                     cadFuncionarios.Cpf = txtCpf.Text;
                     cadFuncionarios.Matricula = txtMatricula.Text;
 
                     if (cadFuncionarios.cadastrarFuncionarios())
                     {
-                        MessageBox.Show($"O funcion·rio {cadFuncionarios.Nome} foi cadastrado com sucesso!");
+                        MessageBox.Show($"O funcion√°rio {cadFuncionarios.Nome} foi cadastrado com sucesso!");
                         txtNome.Clear();
                         txtCpf.Clear();
                         txtMatricula.Clear();
@@ -46,7 +45,7 @@ namespace WinFormsApp1
                     }
                     else
                     {
-                        MessageBox.Show("N„o foi possÌvel cadastrar funcion·rios!");
+                        MessageBox.Show("N√£o foi poss√≠vel cadastrar funcion√°rios!");
                     }
                 }
                 else
@@ -61,7 +60,7 @@ namespace WinFormsApp1
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar funcion·rio: " + ex.Message);
+                MessageBox.Show("Erro ao cadastrar funcion√°rio: " + ex.Message);
             }
         }
 
@@ -89,7 +88,7 @@ namespace WinFormsApp1
                         }
                         else
                         {
-                            MessageBox.Show("Funcion·rio n„o encontrado");
+                            MessageBox.Show("Funcion√°rio n√£o encontrado");
                             txtCpf.Clear();
                             txtNome.Clear();
                             txtMatricula.Clear();
@@ -99,7 +98,7 @@ namespace WinFormsApp1
                     }
                     else
                     {
-                        MessageBox.Show("Funcion·rio n„o encontrado");
+                        MessageBox.Show("Funcion√°rio n√£o encontrado");
                         txtCpf.Clear();
                         txtNome.Clear();
                         txtMatricula.Clear();
@@ -122,13 +121,13 @@ namespace WinFormsApp1
             catch (Exception ex)
             {
 
-                MessageBox.Show("Erro ao encontrar funcio·rio: " + ex.Message);
+                MessageBox.Show("Erro ao encontrar funcio√°rio: " + ex.Message);
             }
         }
         //botao que limpa os dados inseridos pelo usuario
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-            //nao possui mÈtodos
+            //nao possui m√©todos
             txtCpf.Clear();
             txtNome.Clear();
             txtMatricula.Clear();
@@ -151,7 +150,7 @@ namespace WinFormsApp1
 
                     if (cadFuncionarios.atualizarFuncionario())
                     {
-                        MessageBox.Show("Os dados do funcion·rio foram atualizados com sucesso!");
+                        MessageBox.Show("Os dados do funcion√°rio foram atualizados com sucesso!");
                         txtCpf.Clear();
                         txtNome.Clear();
                         txtMatricula.Clear();
@@ -160,7 +159,7 @@ namespace WinFormsApp1
                     }
                     else
                     {
-                        MessageBox.Show("N„o foi possÌvel atualizar as informaÁıes do funcion·rio");
+                        MessageBox.Show("N√£o foi poss√≠vel atualizar as informa√ß√µes do funcion√°rio");
                         txtCpf.Clear();
                         txtNome.Clear();
                         txtMatricula.Clear();
@@ -170,7 +169,7 @@ namespace WinFormsApp1
                 }
                 else
                 {
-                    MessageBox.Show("Favor localizar o funcio·rio que deseja atualizar as informaÁıes");
+                    MessageBox.Show("Favor localizar o funcio√°rio que deseja atualizar as informa√ß√µes");
                     txtCpf.Clear();
                     txtNome.Clear();
                     txtMatricula.Clear();
@@ -180,7 +179,7 @@ namespace WinFormsApp1
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao atualizar dados do funcion·rio: " + ex.Message);
+                MessageBox.Show("Erro ao atualizar dados do funcion√°rio: " + ex.Message);
             }
         }
     }
