@@ -40,6 +40,7 @@
             label2 = new Label();
             lblId = new Label();
             btnLimpar = new Button();
+            btnAtualizar = new Button();
             SuspendLayout();
             // 
             // nome
@@ -79,7 +80,7 @@
             txtNome.Location = new Point(157, 91);
             txtNome.MaxLength = 100;
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(329, 23);
+            txtNome.Size = new Size(349, 23);
             txtNome.TabIndex = 1;
             // 
             // txtMatricula
@@ -87,14 +88,14 @@
             txtMatricula.Location = new Point(157, 183);
             txtMatricula.MaxLength = 5;
             txtMatricula.Name = "txtMatricula";
-            txtMatricula.Size = new Size(329, 23);
+            txtMatricula.Size = new Size(80, 23);
             txtMatricula.TabIndex = 3;
             // 
             // btnCadastrar
             // 
             btnCadastrar.FlatStyle = FlatStyle.Flat;
             btnCadastrar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCadastrar.Location = new Point(386, 245);
+            btnCadastrar.Location = new Point(283, 245);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(100, 35);
             btnCadastrar.TabIndex = 5;
@@ -107,14 +108,14 @@
             txtCpf.Location = new Point(158, 136);
             txtCpf.Mask = "000,000,000-00";
             txtCpf.Name = "txtCpf";
-            txtCpf.Size = new Size(328, 23);
+            txtCpf.Size = new Size(90, 23);
             txtCpf.TabIndex = 2;
             // 
             // btnPesquisar
             // 
             btnPesquisar.FlatStyle = FlatStyle.Flat;
             btnPesquisar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPesquisar.Location = new Point(247, 245);
+            btnPesquisar.Location = new Point(158, 245);
             btnPesquisar.Name = "btnPesquisar";
             btnPesquisar.Size = new Size(100, 35);
             btnPesquisar.TabIndex = 4;
@@ -152,7 +153,7 @@
             // 
             btnLimpar.FlatStyle = FlatStyle.Flat;
             btnLimpar.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLimpar.Location = new Point(419, 41);
+            btnLimpar.Location = new Point(439, 41);
             btnLimpar.Name = "btnLimpar";
             btnLimpar.Size = new Size(67, 25);
             btnLimpar.TabIndex = 9;
@@ -160,11 +161,24 @@
             btnLimpar.UseVisualStyleBackColor = true;
             btnLimpar.Click += btnLimpar_Click;
             // 
+            // btnAtualizar
+            // 
+            btnAtualizar.FlatStyle = FlatStyle.Flat;
+            btnAtualizar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAtualizar.Location = new Point(406, 245);
+            btnAtualizar.Name = "btnAtualizar";
+            btnAtualizar.Size = new Size(100, 35);
+            btnAtualizar.TabIndex = 10;
+            btnAtualizar.Text = "Atualizar";
+            btnAtualizar.UseVisualStyleBackColor = true;
+            btnAtualizar.Click += btnAtualizar_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(605, 409);
+            Controls.Add(btnAtualizar);
             Controls.Add(btnLimpar);
             Controls.Add(lblId);
             Controls.Add(label2);
@@ -197,5 +211,6 @@
         private Label label2;
         private Label lblId;
         private Button btnLimpar;
+        private Button btnAtualizar;
     }
 }

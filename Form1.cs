@@ -32,7 +32,7 @@ namespace WinFormsApp1
                 if (!txtNome.Text.Equals("") && !txtCpf.Text.Equals("") && !txtMatricula.Text.Equals(""))
                 {
                     cadastroFuncionarios cadFuncionarios = new cadastroFuncionarios();
-                    cadFuncionarios.Nome = txtNome.Text;
+                    cadFuncionarios.Nome = txtNome.Text;//recebe os dados inseridos pelo usuário e atribui aos atributos do ojeto cadFuncionarios
                     cadFuncionarios.Cpf = txtCpf.Text;
                     cadFuncionarios.Matricula = txtMatricula.Text;
 
@@ -128,10 +128,60 @@ namespace WinFormsApp1
         //botao que limpa os dados inseridos pelo usuario
         private void btnLimpar_Click(object sender, EventArgs e)
         {
+            //nao possui métodos
             txtCpf.Clear();
             txtNome.Clear();
             txtMatricula.Clear();
             lblId.Text = "";
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!txtCpf.Text.Equals("") && !txtNome.Text.Equals("") && !txtMatricula.Text.Equals(""))
+                {
+                    cadastroFuncionarios cadFuncionarios = new cadastroFuncionarios();
+                    cadFuncionarios.Id = int.Parse(lblId.Text);
+                    cadFuncionarios.Nome = txtNome.Text;
+                    cadFuncionarios.Cpf = txtMatricula.Text;
+                    cadFuncionarios.Matricula = txtMatricula.Text;
+                    cadFuncionarios.Situacao = txtNome.Text;
+                    cadFuncionarios.DataAlteracao = txtMatricula.Text;
+
+                    if (cadFuncionarios.atualizarFuncionario())
+                    {
+                        MessageBox.Show("Os dados do funcionário foram atualizados com sucesso!");
+                        txtCpf.Clear();
+                        txtNome.Clear();
+                        txtMatricula.Clear();
+                        txtCpf.Focus();
+                        lblId.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi possível atualizar as informações do funcionário");
+                        txtCpf.Clear();
+                        txtNome.Clear();
+                        txtMatricula.Clear();
+                        txtCpf.Focus();
+                        lblId.Text = "";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Favor localizar o funcioário que deseja atualizar as informações");
+                    txtCpf.Clear();
+                    txtNome.Clear();
+                    txtMatricula.Clear();
+                    txtCpf.Focus();
+                    lblId.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao atualizar dados do funcionário: " + ex.Message);
+            }
         }
     }
 }
