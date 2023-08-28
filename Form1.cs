@@ -125,7 +125,7 @@ namespace WinFormsApp1
                 MessageBox.Show("Erro ao encontrar funcioário: " + ex.Message);
             }
         }
-
+        //botao que limpa os dados inseridos pelo usuario
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             txtCpf.Clear();
