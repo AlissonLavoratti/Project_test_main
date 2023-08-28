@@ -39,6 +39,7 @@
             label1 = new Label();
             label2 = new Label();
             lblId = new Label();
+            btnLimpar = new Button();
             SuspendLayout();
             // 
             // nome
@@ -93,7 +94,7 @@
             // 
             btnCadastrar.FlatStyle = FlatStyle.Flat;
             btnCadastrar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCadastrar.Location = new Point(289, 245);
+            btnCadastrar.Location = new Point(386, 245);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(100, 35);
             btnCadastrar.TabIndex = 5;
@@ -113,7 +114,7 @@
             // 
             btnPesquisar.FlatStyle = FlatStyle.Flat;
             btnPesquisar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPesquisar.Location = new Point(156, 245);
+            btnPesquisar.Location = new Point(247, 245);
             btnPesquisar.Name = "btnPesquisar";
             btnPesquisar.Size = new Size(100, 35);
             btnPesquisar.TabIndex = 4;
@@ -147,11 +148,24 @@
             lblId.Size = new Size(0, 15);
             lblId.TabIndex = 8;
             // 
+            // btnLimpar
+            // 
+            btnLimpar.FlatStyle = FlatStyle.Flat;
+            btnLimpar.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLimpar.Location = new Point(419, 41);
+            btnLimpar.Name = "btnLimpar";
+            btnLimpar.Size = new Size(67, 25);
+            btnLimpar.TabIndex = 9;
+            btnLimpar.Text = "Limpar";
+            btnLimpar.UseVisualStyleBackColor = true;
+            btnLimpar.Click += btnLimpar_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(605, 409);
+            Controls.Add(btnLimpar);
             Controls.Add(lblId);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -182,5 +196,6 @@
         private Label label1;
         private Label label2;
         private Label lblId;
+        private Button btnLimpar;
     }
 }

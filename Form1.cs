@@ -125,5 +125,13 @@ namespace WinFormsApp1
                 MessageBox.Show("Erro ao encontrar funcioário: " + ex.Message);
             }
         }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            txtCpf.Clear();
+            txtNome.Clear();
+            txtMatricula.Clear();
+            lblId.Text = "";
+        }
     }
 }
