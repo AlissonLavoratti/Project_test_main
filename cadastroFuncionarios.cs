@@ -82,7 +82,7 @@ namespace WinFormsApp1
                 return false;
             }
         }
-        
+        //
         //metodo que localiza os funcionarios cadastrados no banco de dados - READ
         public MySqlDataReader localizarFuncionario()
         {
