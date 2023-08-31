@@ -8,18 +8,17 @@ using System.Threading.Tasks;
 
 namespace WinFormsApp1
 {
-    internal class cadastroFuncionarios//objeto
+    public class Funcionarios//objeto
     {
-        //declaracao das variaveis/atributos que enviaremos para o banco de dados
+        //declaracao das variaveis/atributos que enviaremos para o banco de dados - PRIVADAS
         private int id;
         private string nome;
         private string cpf;
         private string situacao = "A";
-        private string dataAlteracao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
         private string matricula;
-
-
-
+        private string dataAlteracao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+        
+        //PUBLICAS
         public int Id
         {
             get { return id; }
@@ -42,20 +41,21 @@ namespace WinFormsApp1
             set { situacao = "A"; }
         }
 
+        public string Matricula
+        {
+            get { return matricula; }
+            set { matricula = value; }
+        }
+
         public string DataAlteracao
         {
             get { return dataAlteracao; }
             set { dataAlteracao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"); }
         }
 
-        public string Matricula
-        {
-            get { return matricula; }
-            set { matricula = value; }
-        }
         
-        //metodo para cadastrar os funcionarios no banco de dados
-        public bool cadastrarFuncionarios()
+        //metodo para cadastrar os funcionarios no banco de dados - INSERT
+        public bool cadastrarFuncionarios()//classe do tipo primitivo bool que representa um valor true ou false, para testar os valoroes podemos usar try/catch onde neles retornamos o true e o false
         {
             try
             {
@@ -83,7 +83,7 @@ namespace WinFormsApp1
             }
         }
 
-        //metodo que localiza os funcionarios cadastrados no banco de dados
+        //metodo que localiza os funcionarios cadastrados no banco de dados - READ
         public MySqlDataReader localizarFuncionario()
         {
             try
@@ -93,7 +93,7 @@ namespace WinFormsApp1
                 MysqlConexaoBanco.Open();
 
                 //string (lista) com os dados que serão encaminhados para o banco - query
-                string select = $"select funcionario_id, funcionario_nome, funcionario_cpf, funcionario_matricula, funcionario_situacao from funcionario where funcionario_cpf = '{Cpf}';";
+                string select = $"select funcionario_id, funcionario_nome, funcionario_cpf, funcionario_matricula, funcionario_situacao from funcionario where funcionario_cpf = '{Cpf}';";// or funcionario_nome like '%{nome}%' or funcionario_matricula = '{matricula}';
 
                 MySqlCommand comandoSql = MysqlConexaoBanco.CreateCommand();
                 comandoSql.CommandText = select;
@@ -111,6 +111,7 @@ namespace WinFormsApp1
 
         }
 
+        //função que atualiza os dados do funcionario no banco de dados - UPDATE
         public bool atualizarFuncionario()
         {
             try
@@ -135,5 +136,7 @@ namespace WinFormsApp1
                 return false;
             }
         }
+
+
     }
 }

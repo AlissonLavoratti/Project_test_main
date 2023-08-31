@@ -2,18 +2,19 @@ using MySql.Data.MySqlClient;
 
 namespace WinFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form//class Form1 herda os membros (métodos, propriedades, eventos, etc.) da classe Form
     {
         public Form1()
         {
             InitializeComponent();
         }
 
+        /*
         private void label1_Click(object sender, EventArgs e)
         {
 
-        }
-        /**/
+        }*/
+
         private void label1_Click_1(object sender, EventArgs e)
         {
 
@@ -31,7 +32,7 @@ namespace WinFormsApp1
             {
                 if (!txtNome.Text.Equals("") && !txtCpf.Text.Equals("") && !txtMatricula.Text.Equals(""))
                 {
-                    cadastroFuncionarios cadFuncionarios = new cadastroFuncionarios();
+                    Funcionarios cadFuncionarios = new Funcionarios();
                     cadFuncionarios.Nome = txtNome.Text;//recebe os dados inseridos pelo usuário e atribui aos atributos do ojeto cadFuncionarios
                     cadFuncionarios.Cpf = txtCpf.Text;
                     cadFuncionarios.Matricula = txtMatricula.Text;
@@ -72,7 +73,7 @@ namespace WinFormsApp1
             {
                 if (!txtCpf.Text.Equals(""))
                 {
-                    cadastroFuncionarios cadFuncionarios = new cadastroFuncionarios();
+                    Funcionarios cadFuncionarios = new Funcionarios();
                     cadFuncionarios.Cpf = txtCpf.Text;
 
                     MySqlDataReader reader = cadFuncionarios.localizarFuncionario();
@@ -83,6 +84,7 @@ namespace WinFormsApp1
                         {
                             reader.Read();
 
+                            //Retorno dos dados do banco
                             lblId.Text = reader["funcionario_id"].ToString();
                             txtNome.Text = reader["funcionario_nome"].ToString();
                             txtMatricula.Text = reader["funcionario_matricula"].ToString();
@@ -125,6 +127,7 @@ namespace WinFormsApp1
                 MessageBox.Show("Erro ao encontrar funcioário: " + ex.Message);
             }
         }
+
         //botao que limpa os dados inseridos pelo usuario
         private void btnLimpar_Click(object sender, EventArgs e)
         {
@@ -141,7 +144,7 @@ namespace WinFormsApp1
             {
                 if (!txtCpf.Text.Equals("") && !txtNome.Text.Equals("") && !txtMatricula.Text.Equals(""))
                 {
-                    cadastroFuncionarios cadFuncionarios = new cadastroFuncionarios();
+                    Funcionarios cadFuncionarios = new Funcionarios();
                     cadFuncionarios.Id = int.Parse(lblId.Text);
                     cadFuncionarios.Nome = txtNome.Text;
                     cadFuncionarios.Cpf = txtMatricula.Text;
@@ -182,6 +185,20 @@ namespace WinFormsApp1
             {
                 MessageBox.Show("Erro ao atualizar dados do funcionário: " + ex.Message);
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            string nome = txtNome.Text;
+            Form3 quantidadeTikets = new Form3(nome);
+            quantidadeTikets.ShowDialog();
+
         }
     }
 }
