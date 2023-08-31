@@ -1,16 +1,19 @@
+using MySql.Data.MySqlClient;
+
 namespace WinFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form//class Form1 herda os membros (métodos, propriedades, eventos, etc.) da classe Form
     {
         public Form1()
         {
             InitializeComponent();
         }
 
+        /*
         private void label1_Click(object sender, EventArgs e)
         {
 
-        }
+        }*/
 
         private void label1_Click_1(object sender, EventArgs e)
         {
@@ -28,14 +31,14 @@ namespace WinFormsApp1
             {
                 if (!txtNome.Text.Equals("") && !txtCpf.Text.Equals("") && !txtMatricula.Text.Equals(""))
                 {
-                    cadastroFuncionarios cadFuncionarios = new cadastroFuncionarios();
-                    cadFuncionarios.Nome = txtNome.Text;
+                    Funcionarios cadFuncionarios = new Funcionarios();
+                    cadFuncionarios.Nome = txtNome.Text;//recebe os dados inseridos pelo usuário e atribui aos atributos do ojeto cadFuncionarios
                     cadFuncionarios.Cpf = txtCpf.Text;
                     cadFuncionarios.Matricula = txtMatricula.Text;
 
                     if (cadFuncionarios.cadastrarFuncionarios())
                     {
-                        MessageBox.Show($"O funcion�rio {cadFuncionarios.Nome} foi cadastrado com sucesso!");
+                        MessageBox.Show($"O funcionário {cadFuncionarios.Nome} foi cadastrado com sucesso!");
                         txtNome.Clear();
                         txtCpf.Clear();
                         txtMatricula.Clear();
@@ -43,7 +46,7 @@ namespace WinFormsApp1
                     }
                     else
                     {
-                        MessageBox.Show("N�o foi poss�vel cadastrar funcion�rios!");
+                        MessageBox.Show("Não foi possível cadastrar funcionários!");
                     }
                 }
                 else
@@ -58,8 +61,143 @@ namespace WinFormsApp1
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar funcion�rio: " + ex.Message);
+                MessageBox.Show("Erro ao cadastrar funcionário: " + ex.Message);
             }
+        }
+
+        //botao que pesquisa os funcionarios no banco de dados//
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!txtCpf.Text.Equals(""))
+                {
+                    Funcionarios cadFuncionarios = new Funcionarios();
+                    cadFuncionarios.Cpf = txtCpf.Text;
+
+                    MySqlDataReader reader = cadFuncionarios.localizarFuncionario();
+
+                    if (reader != null)
+                    {
+                        if (reader.HasRows)
+                        {
+                            reader.Read();
+
+                            //Retorno dos dados do banco
+                            lblId.Text = reader["funcionario_id"].ToString();
+                            txtNome.Text = reader["funcionario_nome"].ToString();
+                            txtMatricula.Text = reader["funcionario_matricula"].ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Funcionário não encontrado");
+                            txtCpf.Clear();
+                            txtNome.Clear();
+                            txtMatricula.Clear();
+                            txtCpf.Focus();
+                            lblId.Text = "";
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Funcionário não encontrado");
+                        txtCpf.Clear();
+                        txtNome.Clear();
+                        txtMatricula.Clear();
+                        txtCpf.Focus();
+                        lblId.Text = "";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Favor preencher o campo CPF para realizar a pesquisa!");
+                    txtCpf.Clear();
+                    txtNome.Clear();
+                    txtMatricula.Clear();
+                    txtCpf.Focus();
+                    lblId.Text = "";
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erro ao encontrar funcioário: " + ex.Message);
+            }
+        }
+
+        //botao que limpa os dados inseridos pelo usuario
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            //nao possui métodos
+            txtCpf.Clear();
+            txtNome.Clear();
+            txtMatricula.Clear();
+            lblId.Text = "";
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!txtCpf.Text.Equals("") && !txtNome.Text.Equals("") && !txtMatricula.Text.Equals(""))
+                {
+                    Funcionarios cadFuncionarios = new Funcionarios();
+                    cadFuncionarios.Id = int.Parse(lblId.Text);
+                    cadFuncionarios.Nome = txtNome.Text;
+                    cadFuncionarios.Cpf = txtMatricula.Text;
+                    cadFuncionarios.Matricula = txtMatricula.Text;
+                    cadFuncionarios.Situacao = txtNome.Text;
+                    cadFuncionarios.DataAlteracao = txtMatricula.Text;
+
+                    if (cadFuncionarios.atualizarFuncionario())
+                    {
+                        MessageBox.Show("Os dados do funcionário foram atualizados com sucesso!");
+                        txtCpf.Clear();
+                        txtNome.Clear();
+                        txtMatricula.Clear();
+                        txtCpf.Focus();
+                        lblId.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi possível atualizar as informações do funcionário");
+                        txtCpf.Clear();
+                        txtNome.Clear();
+                        txtMatricula.Clear();
+                        txtCpf.Focus();
+                        lblId.Text = "";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Favor localizar o funcioário que deseja atualizar as informações");
+                    txtCpf.Clear();
+                    txtNome.Clear();
+                    txtMatricula.Clear();
+                    txtCpf.Focus();
+                    lblId.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao atualizar dados do funcionário: " + ex.Message);
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            string nome = txtNome.Text;
+            Form3 quantidadeTikets = new Form3(nome);
+            quantidadeTikets.ShowDialog();
+
         }
     }
 }

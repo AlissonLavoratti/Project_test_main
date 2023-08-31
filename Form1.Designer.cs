@@ -32,16 +32,23 @@
             cpf = new Label();
             matricula = new Label();
             txtNome = new TextBox();
-            txtCpf = new TextBox();
             txtMatricula = new TextBox();
             btnCadastrar = new Button();
+            txtCpf = new MaskedTextBox();
+            btnPesquisar = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            lblId = new Label();
+            btnLimpar = new Button();
+            btnAtualizar = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // nome
             // 
             nome.AutoSize = true;
             nome.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            nome.Location = new Point(173, 138);
+            nome.Location = new Point(67, 100);
             nome.Name = "nome";
             nome.Size = new Size(53, 18);
             nome.TabIndex = 1;
@@ -52,7 +59,7 @@
             // 
             cpf.AutoSize = true;
             cpf.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            cpf.Location = new Point(173, 188);
+            cpf.Location = new Point(67, 150);
             cpf.Name = "cpf";
             cpf.Size = new Size(42, 18);
             cpf.TabIndex = 2;
@@ -63,7 +70,7 @@
             // 
             matricula.AutoSize = true;
             matricula.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            matricula.Location = new Point(173, 235);
+            matricula.Location = new Point(67, 197);
             matricula.Name = "matricula";
             matricula.Size = new Size(77, 18);
             matricula.TabIndex = 3;
@@ -71,55 +78,137 @@
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(256, 138);
+            txtNome.Location = new Point(171, 99);
             txtNome.MaxLength = 100;
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(329, 23);
+            txtNome.Size = new Size(349, 23);
             txtNome.TabIndex = 1;
-            // 
-            // txtCpf
-            // 
-            txtCpf.Location = new Point(256, 183);
-            txtCpf.MaxLength = 11;
-            txtCpf.Name = "txtCpf";
-            txtCpf.Size = new Size(329, 23);
-            txtCpf.TabIndex = 2;
             // 
             // txtMatricula
             // 
-            txtMatricula.Location = new Point(256, 230);
+            txtMatricula.Location = new Point(171, 191);
             txtMatricula.MaxLength = 5;
             txtMatricula.Name = "txtMatricula";
-            txtMatricula.Size = new Size(329, 23);
-            txtMatricula.TabIndex = 3;
+            txtMatricula.Size = new Size(80, 23);
+            txtMatricula.TabIndex = 4;
             // 
             // btnCadastrar
             // 
             btnCadastrar.FlatStyle = FlatStyle.Flat;
             btnCadastrar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCadastrar.Location = new Point(384, 328);
+            btnCadastrar.Location = new Point(172, 258);
             btnCadastrar.Name = "btnCadastrar";
-            btnCadastrar.Size = new Size(90, 35);
-            btnCadastrar.TabIndex = 4;
+            btnCadastrar.Size = new Size(100, 35);
+            btnCadastrar.TabIndex = 5;
             btnCadastrar.Text = "Cadastrar";
             btnCadastrar.UseVisualStyleBackColor = true;
             btnCadastrar.Click += btnCadastrar_Click;
+            // 
+            // txtCpf
+            // 
+            txtCpf.Location = new Point(172, 144);
+            txtCpf.Mask = "000,000,000-00";
+            txtCpf.Name = "txtCpf";
+            txtCpf.Size = new Size(90, 23);
+            txtCpf.TabIndex = 2;
+            // 
+            // btnPesquisar
+            // 
+            btnPesquisar.FlatStyle = FlatStyle.Flat;
+            btnPesquisar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPesquisar.Location = new Point(420, 136);
+            btnPesquisar.Name = "btnPesquisar";
+            btnPesquisar.Size = new Size(100, 35);
+            btnPesquisar.TabIndex = 3;
+            btnPesquisar.Text = "Pesquisar";
+            btnPesquisar.UseVisualStyleBackColor = true;
+            btnPesquisar.Click += btnPesquisar_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(65, 58);
+            label1.Name = "label1";
+            label1.Size = new Size(99, 16);
+            label1.TabIndex = 6;
+            label1.Text = "Funcionário Id";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(169, 57);
+            label2.Name = "label2";
+            label2.Size = new Size(0, 15);
+            label2.TabIndex = 7;
+            // 
+            // lblId
+            // 
+            lblId.AutoSize = true;
+            lblId.Location = new Point(170, 59);
+            lblId.Name = "lblId";
+            lblId.Size = new Size(0, 15);
+            lblId.TabIndex = 8;
+            // 
+            // btnLimpar
+            // 
+            btnLimpar.FlatStyle = FlatStyle.Flat;
+            btnLimpar.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLimpar.Location = new Point(420, 258);
+            btnLimpar.Name = "btnLimpar";
+            btnLimpar.Size = new Size(100, 35);
+            btnLimpar.TabIndex = 7;
+            btnLimpar.Text = "Limpar";
+            btnLimpar.UseVisualStyleBackColor = true;
+            btnLimpar.Click += btnLimpar_Click;
+            // 
+            // btnAtualizar
+            // 
+            btnAtualizar.FlatStyle = FlatStyle.Flat;
+            btnAtualizar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAtualizar.Location = new Point(295, 258);
+            btnAtualizar.Name = "btnAtualizar";
+            btnAtualizar.Size = new Size(100, 35);
+            btnAtualizar.TabIndex = 6;
+            btnAtualizar.Text = "Atualizar";
+            btnAtualizar.UseVisualStyleBackColor = true;
+            btnAtualizar.Click += btnAtualizar_Click;
+            // 
+            // button1
+            // 
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(172, 331);
+            button1.Name = "button1";
+            button1.Size = new Size(349, 56);
+            button1.TabIndex = 8;
+            button1.Text = "Cadastrar Tiket";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(624, 433);
+            Controls.Add(button1);
+            Controls.Add(btnAtualizar);
+            Controls.Add(btnLimpar);
+            Controls.Add(lblId);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(btnPesquisar);
+            Controls.Add(txtCpf);
             Controls.Add(btnCadastrar);
             Controls.Add(txtMatricula);
-            Controls.Add(txtCpf);
             Controls.Add(txtNome);
             Controls.Add(matricula);
             Controls.Add(cpf);
             Controls.Add(nome);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Company";
+            Text = "Tikets Sistem";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -129,8 +218,15 @@
         private Label cpf;
         private Label matricula;
         private TextBox txtNome;
-        private TextBox txtCpf;
         private TextBox txtMatricula;
         private Button btnCadastrar;
+        private MaskedTextBox txtCpf;
+        private Button btnPesquisar;
+        private Label label1;
+        private Label label2;
+        private Label lblId;
+        private Button btnLimpar;
+        private Button btnAtualizar;
+        private Button button1;
     }
 }
