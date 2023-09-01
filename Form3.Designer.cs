@@ -74,7 +74,7 @@
             // 
             // btnSalvarTiket
             // 
-            btnSalvarTiket.BackColor = SystemColors.GradientInactiveCaption;
+            btnSalvarTiket.BackColor = SystemColors.GradientActiveCaption;
             btnSalvarTiket.Cursor = Cursors.AppStarting;
             btnSalvarTiket.FlatStyle = FlatStyle.Flat;
             btnSalvarTiket.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -88,7 +88,7 @@
             // 
             // btnCancelarTiket
             // 
-            btnCancelarTiket.BackColor = SystemColors.GradientInactiveCaption;
+            btnCancelarTiket.BackColor = SystemColors.GradientActiveCaption;
             btnCancelarTiket.Cursor = Cursors.AppStarting;
             btnCancelarTiket.FlatStyle = FlatStyle.Flat;
             btnCancelarTiket.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -152,7 +152,7 @@
             // 
             // button1
             // 
-            button1.BackColor = SystemColors.GradientInactiveCaption;
+            button1.BackColor = SystemColors.GradientActiveCaption;
             button1.Cursor = Cursors.AppStarting;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);

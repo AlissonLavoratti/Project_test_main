@@ -61,7 +61,7 @@ namespace WinFormsApp1
 
                 if (reader != null)
                 {
-                    
+
                     // Preencha o DataGridView com os dados do leitor.
                     while (reader.Read())
                     {
@@ -90,6 +90,11 @@ namespace WinFormsApp1
         private MySqlDataReader getFuncionarniosTiket()
         {
             throw new NotImplementedException();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
