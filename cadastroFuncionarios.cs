@@ -11,12 +11,12 @@ namespace WinFormsApp1
     public class Funcionarios//objeto
     {
         //declaracao das variaveis/atributos que enviaremos para o banco de dados - PRIVADAS
-        private int id;
-        private string nome;
-        private string cpf;
-        private string situacao = "A";
-        private string matricula;
-        private string dataAlteracao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+        public int id;
+        public string nome;
+        public string cpf;
+        public string situacao = "A";
+        public string matricula;
+        public string dataAlteracao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
         
         //PUBLICAS
         public int Id
@@ -68,12 +68,10 @@ namespace WinFormsApp1
 
 
                 MySqlCommand comandoSql = MysqlConexaoBanco.CreateCommand();
-                comandoSql.CommandText = insert; 
+                comandoSql.CommandText = insert;
 
                 comandoSql.ExecuteNonQuery();
                 return true;
-
-
             }
             catch (Exception ex)
             {
@@ -122,7 +120,7 @@ namespace WinFormsApp1
 
 
                 //string (lista) com os dados que serão encaminhados para o banco - query
-                string update = $"update funcionario set funcionario_nome = '{nome}', funcionario_cpf = '{cpf}', funcionario_matricula = '{matricula}', funcionario_situacao = '{situacao}' where funcionario_id = '{id}';";
+                string update = $"update funcionario set funcionario_nome = '{nome}', funcionario_cpf = '{cpf}', funcionario_matricula = '{matricula}', funcionario_situacao = '{situacao}' where funcionario_cpf = '{cpf}';";
 
                 MySqlCommand comandoSql = MysqlConexaoBanco.CreateCommand();
                 comandoSql.CommandText = update;
@@ -136,7 +134,5 @@ namespace WinFormsApp1
                 return false;
             }
         }
-
-
     }
 }

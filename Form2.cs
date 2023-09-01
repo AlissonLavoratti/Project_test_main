@@ -16,15 +16,17 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-        
+
         private void Form2_Load(object sender, EventArgs e)
         {
             /*
             FuncionarioTikets funcTikets = new FuncionarioTikets();
             funcTikets.id;
             funcTikets.tiket_situacao = "A";*/
+        }
 
-
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
