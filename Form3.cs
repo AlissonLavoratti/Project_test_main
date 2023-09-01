@@ -56,7 +56,7 @@ namespace WinFormsApp1
 
 
                     cadFuncionarioTikets.cadastraFuncionarioTikets();
-                    
+
                     MessageBox.Show($"{cadFuncionarioTikets.Quantidade} tikets foram cadastrados com sucesso!");
 
                     MySqlDataReader reader = cadFuncionarioTikets.localizarFuncionarioTiket();

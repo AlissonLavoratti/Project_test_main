@@ -43,13 +43,13 @@
             label1.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(39, 46);
             label1.Name = "label1";
-            label1.Size = new Size(167, 18);
+            label1.Size = new Size(171, 18);
             label1.TabIndex = 0;
-            label1.Text = "Pesquisar Funcionário";
+            label1.Text = "Pesquisar Funcionário:";
             // 
             // txtCpf
             // 
-            txtCpf.Location = new Point(550, 47);
+            txtCpf.Location = new Point(550, 41);
             txtCpf.Mask = "000,000,000-00";
             txtCpf.Name = "txtCpf";
             txtCpf.Size = new Size(90, 23);
@@ -71,19 +71,20 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(226, 47);
+            textBox1.Location = new Point(225, 41);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(302, 23);
             textBox1.TabIndex = 5;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // btnBuscar
             // 
-            btnBuscar.BackColor = SystemColors.GradientInactiveCaption;
+            btnBuscar.BackColor = SystemColors.GradientActiveCaption;
             btnBuscar.FlatStyle = FlatStyle.Flat;
-            btnBuscar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnBuscar.Location = new Point(334, 465);
+            btnBuscar.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnBuscar.Location = new Point(657, 39);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(100, 35);
+            btnBuscar.Size = new Size(100, 25);
             btnBuscar.TabIndex = 7;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = false;
@@ -93,7 +94,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 530);
+            ClientSize = new Size(800, 494);
             Controls.Add(btnBuscar);
             Controls.Add(textBox1);
             Controls.Add(dgvFuncTikets);

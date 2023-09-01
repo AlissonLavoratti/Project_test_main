@@ -96,6 +96,7 @@
             // 
             // btnCadastrar
             // 
+            btnCadastrar.BackColor = SystemColors.GradientInactiveCaption;
             btnCadastrar.FlatStyle = FlatStyle.Flat;
             btnCadastrar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnCadastrar.Location = new Point(172, 258);
@@ -103,7 +104,7 @@
             btnCadastrar.Size = new Size(100, 35);
             btnCadastrar.TabIndex = 5;
             btnCadastrar.Text = "Cadastrar";
-            btnCadastrar.UseVisualStyleBackColor = true;
+            btnCadastrar.UseVisualStyleBackColor = false;
             btnCadastrar.Click += btnCadastrar_Click;
             // 
             // txtCpf
@@ -117,7 +118,7 @@
             // 
             // btnPesquisar
             // 
-            btnPesquisar.BackColor = SystemColors.GradientInactiveCaption;
+            btnPesquisar.BackColor = SystemColors.GradientActiveCaption;
             btnPesquisar.FlatStyle = FlatStyle.Flat;
             btnPesquisar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnPesquisar.Location = new Point(420, 136);
@@ -156,6 +157,7 @@
             // 
             // btnLimpar
             // 
+            btnLimpar.BackColor = SystemColors.GradientInactiveCaption;
             btnLimpar.FlatStyle = FlatStyle.Flat;
             btnLimpar.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnLimpar.Location = new Point(420, 258);
@@ -163,11 +165,12 @@
             btnLimpar.Size = new Size(100, 35);
             btnLimpar.TabIndex = 7;
             btnLimpar.Text = "Limpar";
-            btnLimpar.UseVisualStyleBackColor = true;
+            btnLimpar.UseVisualStyleBackColor = false;
             btnLimpar.Click += btnLimpar_Click;
             // 
             // btnAtualizar
             // 
+            btnAtualizar.BackColor = SystemColors.GradientInactiveCaption;
             btnAtualizar.FlatStyle = FlatStyle.Flat;
             btnAtualizar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnAtualizar.Location = new Point(295, 258);
@@ -175,12 +178,12 @@
             btnAtualizar.Size = new Size(100, 35);
             btnAtualizar.TabIndex = 6;
             btnAtualizar.Text = "Atualizar";
-            btnAtualizar.UseVisualStyleBackColor = true;
+            btnAtualizar.UseVisualStyleBackColor = false;
             btnAtualizar.Click += btnAtualizar_Click;
             // 
             // button1
             // 
-            button1.BackColor = SystemColors.GradientInactiveCaption;
+            button1.BackColor = SystemColors.GradientActiveCaption;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button1.Location = new Point(172, 331);
