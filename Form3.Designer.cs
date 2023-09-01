@@ -37,7 +37,6 @@
             Nome_Func = new Label();
             labelId = new Label();
             Id_Func = new Label();
-            label2 = new Label();
             button1 = new Button();
             numTiket = new Label();
             numTiketVer = new TextBox();
@@ -140,16 +139,6 @@
             Id_Func.TabIndex = 8;
             Id_Func.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(313, 234);
-            label2.Name = "label2";
-            label2.Size = new Size(39, 19);
-            label2.TabIndex = 9;
-            label2.Text = "und";
-            // 
             // button1
             // 
             button1.BackColor = SystemColors.GradientActiveCaption;
@@ -200,7 +189,6 @@
             Controls.Add(numTiketVer);
             Controls.Add(numTiket);
             Controls.Add(button1);
-            Controls.Add(label2);
             Controls.Add(Id_Func);
             Controls.Add(labelId);
             Controls.Add(Nome_Func);
@@ -229,7 +217,6 @@
         private Label Nome_Func;
         private Label labelId;
         private Label Id_Func;
-        private Label label2;
         private Button button1;
         private Label numTiket;
         private TextBox numTiketVer;
