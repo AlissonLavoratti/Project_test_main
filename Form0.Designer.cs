@@ -46,18 +46,21 @@
             // 
             // btnFuncionarios
             // 
+            btnFuncionarios.BackColor = SystemColors.GradientInactiveCaption;
             btnFuncionarios.FlatStyle = FlatStyle.Flat;
             btnFuncionarios.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnFuncionarios.ForeColor = SystemColors.ControlText;
             btnFuncionarios.Location = new Point(84, 195);
             btnFuncionarios.Name = "btnFuncionarios";
             btnFuncionarios.Size = new Size(160, 85);
             btnFuncionarios.TabIndex = 1;
             btnFuncionarios.Text = "Funcionários";
-            btnFuncionarios.UseVisualStyleBackColor = true;
+            btnFuncionarios.UseVisualStyleBackColor = false;
             btnFuncionarios.Click += btnFuncionarios_Click;
             // 
             // btnConsTikets
             // 
+            btnConsTikets.BackColor = SystemColors.GradientInactiveCaption;
             btnConsTikets.FlatStyle = FlatStyle.Flat;
             btnConsTikets.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnConsTikets.Location = new Point(329, 195);
@@ -65,7 +68,7 @@
             btnConsTikets.Size = new Size(160, 85);
             btnConsTikets.TabIndex = 2;
             btnConsTikets.Text = "Consultar Tikets";
-            btnConsTikets.UseVisualStyleBackColor = true;
+            btnConsTikets.UseVisualStyleBackColor = false;
             btnConsTikets.Click += button1_Click;
             // 
             // TiketsSistem

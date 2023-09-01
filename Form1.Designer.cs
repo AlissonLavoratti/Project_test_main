@@ -78,6 +78,7 @@
             // 
             // txtNome
             // 
+            txtNome.Cursor = Cursors.IBeam;
             txtNome.Location = new Point(171, 99);
             txtNome.MaxLength = 100;
             txtNome.Name = "txtNome";
@@ -86,6 +87,7 @@
             // 
             // txtMatricula
             // 
+            txtMatricula.Cursor = Cursors.IBeam;
             txtMatricula.Location = new Point(171, 191);
             txtMatricula.MaxLength = 5;
             txtMatricula.Name = "txtMatricula";
@@ -106,6 +108,7 @@
             // 
             // txtCpf
             // 
+            txtCpf.Cursor = Cursors.IBeam;
             txtCpf.Location = new Point(172, 144);
             txtCpf.Mask = "000,000,000-00";
             txtCpf.Name = "txtCpf";
@@ -114,6 +117,7 @@
             // 
             // btnPesquisar
             // 
+            btnPesquisar.BackColor = SystemColors.GradientInactiveCaption;
             btnPesquisar.FlatStyle = FlatStyle.Flat;
             btnPesquisar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnPesquisar.Location = new Point(420, 136);
@@ -121,14 +125,14 @@
             btnPesquisar.Size = new Size(100, 35);
             btnPesquisar.TabIndex = 3;
             btnPesquisar.Text = "Pesquisar";
-            btnPesquisar.UseVisualStyleBackColor = true;
+            btnPesquisar.UseVisualStyleBackColor = false;
             btnPesquisar.Click += btnPesquisar_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(65, 58);
+            label1.Location = new Point(45, 57);
             label1.Name = "label1";
             label1.Size = new Size(99, 16);
             label1.TabIndex = 6;
@@ -176,6 +180,7 @@
             // 
             // button1
             // 
+            button1.BackColor = SystemColors.GradientInactiveCaption;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button1.Location = new Point(172, 331);
@@ -183,7 +188,7 @@
             button1.Size = new Size(349, 56);
             button1.TabIndex = 8;
             button1.Text = "Cadastrar Tiket";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // Form1

@@ -116,8 +116,6 @@ namespace WinFormsApp1
                     txtMatricula.Clear();
                     txtCpf.Focus();
                     lblId.Text = "";
-
-
                 }
             }
             catch (Exception ex)
@@ -193,11 +191,11 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            string id = lblId.Text;
             string nome = txtNome.Text;
-            Form3 quantidadeTikets = new Form3(nome);
-            quantidadeTikets.ShowDialog();
 
+            Form3 quantidadeTikets = new Form3(id, nome);
+            quantidadeTikets.ShowDialog();
         }
     }
 }
