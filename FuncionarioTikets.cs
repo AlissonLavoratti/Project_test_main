@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,7 +66,8 @@ namespace WinFormsApp1
             set { tikets_data_entrega = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"); }
         }
 
-        
+        public static object Conn { get; }
+
         public bool cadastraFuncionarioTikets()
         {
             try
@@ -147,6 +149,31 @@ namespace WinFormsApp1
                 //mensagem de erro do banco de dados quando não for possível cadastrar funcionáriosTiket no banco
                 MessageBox.Show("Erro no banco de dados - método atualizarFuncionarioTikets: " + ex.Message);
                 return false;
+            }
+        }
+
+
+        public MySqlDataReader getFuncionarniosTiket()
+        {
+            try
+            {
+                MySqlConnection MysqlConexaoBanco = new MySqlConnection(ConexaoBanco.bancoServidor);
+                MysqlConexaoBanco.Open();
+
+                string select = $"SELECT funcionario_id, funcionario_nome, funcionario_cpf, funcionario_situacao, funcionario_data_alteracao, funcionario_matricula FROM FUNCIONARIO WHERE funcionario_nome = '{funcionario_nome}';";
+
+                MySqlCommand comandSql = MysqlConexaoBanco.CreateCommand();
+                comandSql.CommandText = select;
+
+                MySqlDataReader reader = comandSql.ExecuteReader();
+
+                // retorno dos dados
+                return reader;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro no banco de dados - método getFuncionarniosTiket: " + ex.Message);
+                return null;
             }
         }
     }
