@@ -33,6 +33,7 @@
             dgvFuncTikets = new DataGridView();
             textBox1 = new TextBox();
             btnBuscar = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvFuncTikets).BeginInit();
             SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             // 
             // txtCpf
             // 
-            txtCpf.Location = new Point(550, 41);
+            txtCpf.Location = new Point(537, 39);
             txtCpf.Mask = "000,000,000-00";
             txtCpf.Name = "txtCpf";
             txtCpf.Size = new Size(90, 23);
@@ -61,17 +62,17 @@
             dgvFuncTikets.AllowUserToDeleteRows = false;
             dgvFuncTikets.BackgroundColor = SystemColors.ControlLight;
             dgvFuncTikets.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvFuncTikets.Location = new Point(70, 118);
+            dgvFuncTikets.Location = new Point(53, 103);
             dgvFuncTikets.Name = "dgvFuncTikets";
             dgvFuncTikets.ReadOnly = true;
             dgvFuncTikets.RowTemplate.Height = 25;
-            dgvFuncTikets.Size = new Size(661, 318);
+            dgvFuncTikets.Size = new Size(673, 333);
             dgvFuncTikets.TabIndex = 4;
             dgvFuncTikets.CellContentClick += dataGridView1_CellContentClick;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(225, 41);
+            textBox1.Location = new Point(216, 41);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(302, 23);
             textBox1.TabIndex = 5;
@@ -82,19 +83,32 @@
             btnBuscar.BackColor = SystemColors.GradientActiveCaption;
             btnBuscar.FlatStyle = FlatStyle.Flat;
             btnBuscar.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnBuscar.Location = new Point(657, 39);
+            btnBuscar.Location = new Point(645, 39);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(100, 25);
+            btnBuscar.Size = new Size(81, 25);
             btnBuscar.TabIndex = 7;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = false;
             btnBuscar.Click += btnBuscar_Click1;
             // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.GradientActiveCaption;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(645, 465);
+            button1.Name = "button1";
+            button1.Size = new Size(81, 25);
+            button1.TabIndex = 8;
+            button1.Text = "Limpar";
+            button1.UseVisualStyleBackColor = false;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 494);
+            ClientSize = new Size(779, 517);
+            Controls.Add(button1);
             Controls.Add(btnBuscar);
             Controls.Add(textBox1);
             Controls.Add(dgvFuncTikets);
@@ -116,5 +130,6 @@
         private DataGridView dgvFuncTikets;
         private TextBox textBox1;
         private Button btnBuscar;
+        private Button button1;
     }
 }
