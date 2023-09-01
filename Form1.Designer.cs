@@ -91,7 +91,7 @@
             txtMatricula.Location = new Point(171, 191);
             txtMatricula.MaxLength = 5;
             txtMatricula.Name = "txtMatricula";
-            txtMatricula.Size = new Size(80, 23);
+            txtMatricula.Size = new Size(91, 23);
             txtMatricula.TabIndex = 4;
             // 
             // btnCadastrar
@@ -121,7 +121,7 @@
             btnPesquisar.BackColor = SystemColors.GradientActiveCaption;
             btnPesquisar.FlatStyle = FlatStyle.Flat;
             btnPesquisar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPesquisar.Location = new Point(420, 136);
+            btnPesquisar.Location = new Point(420, 133);
             btnPesquisar.Name = "btnPesquisar";
             btnPesquisar.Size = new Size(100, 35);
             btnPesquisar.TabIndex = 3;
