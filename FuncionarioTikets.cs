@@ -30,7 +30,6 @@ namespace WinFormsApp1
             this.funcionario_nome = nome;
         }
 
-
         public string Tikets_versao//Maiúsculo
         {
             get { return tikets_versao; }
@@ -43,16 +42,16 @@ namespace WinFormsApp1
             set { id = value; }
         }
 
-        public string Funcionario_nome//Maiúsculo
-        {
-            get { return funcionario_nome; }
-            set { funcionario_nome = value; }
-        }
-
         public string Funcionario_id//Maiúsculo
         {
             get { return funcionario_id; }
             set { funcionario_id = value; }
+        }
+
+        public string Funcionario_nome//Maiúsculo
+        {
+            get { return funcionario_nome; }
+            set { funcionario_nome = value; }
         }
 
         public string Quantidade
@@ -60,6 +59,7 @@ namespace WinFormsApp1
             get { return tikets_quantidade; }
             set { tikets_quantidade = value; }
         }
+
         public string DataAlteracao
         {
             get { return tikets_data_entrega; }
@@ -160,7 +160,7 @@ namespace WinFormsApp1
                 MySqlConnection MysqlConexaoBanco = new MySqlConnection(ConexaoBanco.bancoServidor);
                 MysqlConexaoBanco.Open();
 
-                string select = $"SELECT funcionario_id, funcionario_nome, funcionario_cpf, funcionario_situacao, funcionario_data_alteracao, funcionario_matricula FROM FUNCIONARIO WHERE funcionario_nome = '{funcionario_nome}';";
+                string select = $"SELECT funcionario_tikets_id, funcionario_tikets_nome, funcionario_tikets_quantidade, funcionario_tikets_situacao, funcionario_tikets_data_entrega, id_funcionario_tiket, funcionario_tiket_versao FROM funcionario_tiket WHERE funcionario_tikets_nome like '%{funcionario_nome}%';";
 
                 MySqlCommand comandSql = MysqlConexaoBanco.CreateCommand();
                 comandSql.CommandText = select;
