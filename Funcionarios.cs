@@ -11,7 +11,7 @@ namespace WinFormsApp1
     public class Funcionarios//objeto
     {
         //declaracao das variaveis/atributos que enviaremos para o banco de dados - PRIVADAS
-        public int id;
+        public int    id;
         public string nome;
         public string cpf;
         public string situacao = "A";
@@ -30,11 +30,13 @@ namespace WinFormsApp1
             get { return nome; }
             set { nome = value; }
         }
+
         public string Cpf
         {
             get { return cpf; }
             set { cpf = value; }
         }
+
         public string Situacao
         {
             get { return situacao; }
@@ -52,7 +54,6 @@ namespace WinFormsApp1
             get { return dataAlteracao; }
             set { dataAlteracao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"); }
         }
-
         
         //metodo para cadastrar os funcionarios no banco de dados - INSERT
         public bool cadastrarFuncionarios()//classe do tipo primitivo bool que representa um valor true ou false, para testar os valoroes podemos usar try/catch onde neles retornamos o true e o false
@@ -80,7 +81,7 @@ namespace WinFormsApp1
                 return false;
             }
         }
-        //
+        
         //metodo que localiza os funcionarios cadastrados no banco de dados - READ
         public MySqlDataReader localizarFuncionario()
         {
@@ -106,7 +107,6 @@ namespace WinFormsApp1
                 MessageBox.Show("Erro no banco de dados - método localizarFuncionario: " + ex.Message);
                 return null;
             }
-
         }
 
         //função que atualiza os dados do funcionario no banco de dados - UPDATE

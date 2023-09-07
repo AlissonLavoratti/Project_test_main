@@ -56,29 +56,39 @@ namespace WinFormsApp1
         {
             try
             {
-                // Chame a função getFuncionarniosTiket para obter o MySqlDataReader com os resultados.
-                MySqlDataReader reader = getFuncionarniosTiket();
-
-                if (reader != null)
+                if (!textBox1.Text.Equals(""))
                 {
 
-                    // Preencha o DataGridView com os dados do leitor.
-                    while (reader.Read())
+                    FuncionarioTikets funcionarioTikets = new FuncionarioTikets();
+                    funcionarioTikets.funcionario_nome = textBox1.Text;
+
+
+                    // Chame a função getFuncionarniosTiket para obter o MySqlDataReader com os resultados.
+                    MySqlDataReader reader = funcionarioTikets.getFuncionarniosTiket();
+
+                    if (reader != null)
                     {
+                        // Limpe o DataGridView antes de preenchê-lo com os novos dados.
+                        dgvFuncTikets.Rows.Clear();
 
-                        // Adicione uma nova linha ao DataGridView para cada registro no leitor.
-                        dgvFuncTikets.Rows.Add(
-                            reader["funcionario_id"].ToString(),
-                            reader["funcionario_nome"].ToString(),
-                            reader["funcionario_cpf"].ToString(),
-                            reader["funcionario_situacao"].ToString(),
-                            reader["funcionario_data_alteracao"].ToString(),
-                            reader["funcionario_matricula"].ToString()
-                        );
+                        // Preencha o DataGridView com os dados do leitor.
+                        while (reader.Read())
+                        {
+                            // Adicione uma nova linha ao DataGridView para cada registro no leitor.
+                            dgvFuncTikets.Rows.Add(
+                                reader["funcionario_tikets_id"].ToString(),
+                                reader["funcionario_tikets_nome"].ToString(),
+                                reader["funcionario_tikets_quantidade"].ToString(),
+                                reader["funcionario_tikets_situacao"].ToString(),
+                                reader["funcionario_tikets_data_entrega"].ToString(),
+                                reader["id_funcionario_tiket"].ToString(),
+                                reader["funcionario_tiket_versao"].ToString()
+                            );
+                        }
+
+                        // Feche o leitor após preencher o DataGridView.
+                        reader.Close();
                     }
-
-                    // Feche o leitor após preencher o DataGridView.
-                    reader.Close();
                 }
             }
             catch (Exception ex)
@@ -89,12 +99,21 @@ namespace WinFormsApp1
 
         private MySqlDataReader getFuncionarniosTiket()
         {
+
+
+
             throw new NotImplementedException();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            dgvFuncTikets.Rows.Clear();
         }
     }
 }
